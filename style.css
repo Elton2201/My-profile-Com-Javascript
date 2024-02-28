@@ -1,0 +1,219 @@
+/* * {    Isso é para tirar tudo o que está dentro. 
+  margin: 0;  espaçamento de fora
+  padding: 0; espaçamento de dentro
+  box-sizing: border-box;
+
+
+    <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?0">
+
+  
+}*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Url é um valor de função que serve para colocar aonde está a imagem */
+/* Cover cobre toda a área visivel */
+/* caso a image repita adicione este codigo. background-repeat: no-repeat;  
+background é uma tag aonde eu posso escrever tudo seguindo a ordem correta
+ Para fazer isso abaixo é só seguir a ordem, Color, img, Url, repeat position/size a barra é necessaria aqui entre position e size 
+*/
+
+:root {
+  --text-color: white;
+  --bg-url: url(bg-desktop.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+ --switch-bg-url: url(MoonStars.svg);
+}
+
+
+.light {
+  --text-color: black;
+ --bg-url: url(bg-mobile-light.jpg);
+   --stroke-color: rgba(0, 0, 0, 0.5);
+--surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+     --highlight-color: rgba(0, 0, 0, 0.1);
+ --switch-bg-url: url(Sun.svg)
+    }
+
+
+body {
+  /*   
+   background-image: url(./assets/bg-mobile.jpg);    
+   background-repeat: no-repeat;
+   background-position: top center;
+   background-size: cover;              
+   não da para usar text-align se os "filhos" estiverem com Display:Block 
+   */
+  background: var(--bg-url) no-repeat top center/cover
+}
+/*
+body * {
+  font-family: 'inter', sans-serif;  qual fonte vc quer.
+ color: white; cor da fonte
+
+}
+*/
+body * {
+  font-family: "inter", sans-serif;
+  color: var(--text-color);
+}
+
+/* 
+#container {
+  
+  width: 360px;   largura
+  border: 1px solid white; para fazer a borda
+  margin: auto; margem para o todo, a parte de fora.
+  }
+ */
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24;
+}
+/* 
+#profile {
+ text-align: center;  centralizar
+} */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+/* 
+#profile img {
+  width: 112px; largura  
+}*/
+#profile img {
+  width: 112px;
+  border-radius: 50px;
+  border: 1px solid var(--stroke-color);
+}
+/* 
+#profile p {
+  font-weight: 400;  Negrito
+  line-height: 24px;  espaçamento da altura
+  margin-top é o espaçamento só de cima
+
+}
+ */
+#profile p {
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 8px;
+}
+/* font-size por padrão de navegador é de 16 pixels.*/
+
+/* Switch */
+
+#switch {
+  width: 64px;
+  position: relative;
+  margin: 4px auto;
+/* Position Relative faz com que a minha imagem ande para todo o canto dentro da tag no caso a Switch */
+}
+
+#switch button {
+  width: 32px ;
+  height: 32px ;
+background: white var(--switch-bg-url) no-repeat center;
+border: 0;
+border-radius: 50px;
+
+/* Forma de alinhar usando o display: Block */
+position: absolute;
+top: 50%;
+left: 0;
+z-index: 1;
+transform: translateY(-50%);
+/* Position absolute me permite criar camadas dentro da tela para assim poder colocar o que quero colocar em qualquer lugar da tela 
+z-index é a camada e movo com as direções  */
+
+/* TransformY é para ajudar a alinhar de forma reta */
+}
+
+.light #switch button{
+right: 0;
+left: initial;
+}
+
+#switch span {
+  display: block;
+width: 64px;
+height: 24px;
+background: var(--surface-color);
+border: 1px solid var(--stroke-color);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border-radius: 9999px;
+
+}
+/* Links - lista */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+/* list-style:none é para tirar os potinhos antes das palavras, gerados por causa da lista desordenada
+ flex-direction: column; É para deixr tudo em coluna*/
+ul li a {
+  display: flex;
+  align-items: center; /* eu alinho o item/texto ao centro da linha de forma horizontal*/
+  justify-content: center; /*e eu alinho o texto de forma reta deitada*/
+  height: 52px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none; /*  line-through*é para ter uma linha dentro da palavra tipo aquela de corta preço de produto*/
+  font-weight: 500;
+  transition: all 0.6s;
+}
+/* eu posso usar display block e usar text align para fazer a mesma coisa */
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color)
+}
+
+/* Pseudo-selector hover */
+
+/* social links */
+
+#social-link {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 40px;
+}
+
+#social-link a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50px;
+}
+
+#social-link a:hover {
+  background: var(--highlight-color);
+}
+
+Footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 14px;
+}
